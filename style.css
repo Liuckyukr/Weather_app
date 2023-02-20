@@ -5,7 +5,7 @@ body {
 .conteiner {
     display: block;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     max-width: 600px;
     margin: 0 auto;
     padding: 30px 60px;
@@ -17,7 +17,7 @@ body {
 }  
 
 .city {
-  font-size: 50px;
+  font-size: 40px;
   color: brown;
   font-family: 'Noto Serif', serif;
   font-weight: bold;
