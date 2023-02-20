@@ -1,6 +1,7 @@
 body {
     background-color: rgb(118, 134, 91);
     font-family: 'Leckerli One', cursive;
+    color: rgb(78, 78, 78);
   }
 .conteiner {
     display: block;
@@ -18,7 +19,7 @@ body {
 
 .city {
   font-size: 35px;
-  color: brown;
+  color: rgba(156, 66, 66, 0.945);
   font-family: 'Noto Serif', serif;
   font-weight: bold;
 }
