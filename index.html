@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -19,10 +23,9 @@
       <form id="form">
         <input
           type="Choose"
-          placeholder="Choose a city"
-          id="chooseSity"
-          list=""
-          autofocus
+          placeholder="Enter the city"
+          id="chooseCity"
+          class="chooseCity"
         />
         <input type="Submit" value="Submit" />
       </form>
@@ -30,16 +33,13 @@
 
       <div class="infoCity">
         <div class="nameCity">
-          Weather in
-          <div id="mainCity">city</div>
+          <div class="city" id="mainCity">city</div>
         </div>
         <div id="dateCity">today</div>
-        <div id="emTemperHumWind">
           <img src = "http://openweathermap.org/img/wn/01d@2x.png" id="emojiCity"/>
-          <div id="temperatureCity"></div>
-          <div id="humidityCity"></div>
-          <div id="windCity"></div>
-        </div>
+          <div> Temperature: <span id="temperatureCity"></span></div>
+          <div> Humidity: <span id="humidityCity"></span> </div>
+          <div> Wind: <span id="windCity"></span></div>
       </div>
 
       <div class="row">
@@ -112,7 +112,7 @@
           cloth
         </div>
       </div>
-      <button id="currentData">Current</button>
+      <button class="currentData" id="currentData">Current</button>
       <div>
         <a href="https://github.com/Liuckyukr/Weather_app" target="_blank">Open</a> by Matt Delac
       </div>

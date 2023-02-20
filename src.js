@@ -23,11 +23,10 @@ function dayWeek(infoNowTime) {
   let dateElement = document.querySelector("#dateCity");
   let infoNowTime = new Date();
   dateElement.innerHTML = dayWeek(infoNowTime);
+
   
   function showWeather(response) {
     document.querySelector("#mainCity").innerHTML = response.data.name;
-    document.querySelector("#emojiCity").innerHTML =
-      response.data.weather[0].icon;
     document.querySelector("#temperatureCity").innerHTML =
       Math.round(response.data.main.temp) + " °C";
     document.querySelector("#humidityCity").innerHTML =

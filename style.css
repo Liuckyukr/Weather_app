@@ -1,14 +1,33 @@
 body {
     background-color: rgb(118, 134, 91);
+    font-family: 'Leckerli One', cursive;
   }
-  .conteiner {
+.conteiner {
     display: block;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     max-width: 600px;
     margin: 0 auto;
     padding: 30px 60px;
     background-color: rgb(199, 247, 206);
   }
-  
+
+.infoCity {
+    margin: 20px auto;
+}  
+
+.city {
+  font-size: 50px;
+  color: brown;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+}
+
+.chooseCity {
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+}
+
+.currentData {
+  margin: 25px auto;
+}
