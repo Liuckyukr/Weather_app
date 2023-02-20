@@ -44,7 +44,7 @@ function dayWeek(infoNowTime) {
   
   function userSubmit(event) {
     event.preventDefault();
-    let city = document.querySelector("#chooseSity").value;
+    let city = document.querySelector("#chooseCity").value;
     weatherCity(city);
   }
   
