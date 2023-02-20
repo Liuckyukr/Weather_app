@@ -11,10 +11,10 @@ function dayWeek(infoNowTime) {
     let infoDay = days[infoNowTime.getDay()];
     let infoHour = infoNowTime.getHours();
     let infoMinut = infoNowTime.getMinutes();
-    if (infoMinut.length === 1) {
+    if (infoMinut < 10) {
       infoMinut = "0" + infoMinut;
     }
-    if (infoHour.length === 1) {
+    if (infoHour < 10) {
       infoHour = "0" + infoHour;
     }
     let infoRealyDate = `${infoDay} ${infoHour}:${infoMinut}`;
@@ -24,23 +24,6 @@ function dayWeek(infoNowTime) {
   let infoNowTime = new Date();
   dateElement.innerHTML = dayWeek(infoNowTime);
   
-  //let infoRealyDate = infoDay + " " + infoHour + ":" + infoMinut;
-  
-  //function showCity(event) {
-  //event.preventDefault();
-  //let inputCity = document.querySelector("#chooseCity");
-  //document.getElementById("mainCity").innerHTML = inputCity.value;
-  //}
-  //let mCity = document.querySelector("#form");
-  //mCity.addEventListener("submit", showCity);
-  
-  //let emojiCity = data.weather.icon;
-  //let temperatureCity = Math.round(data.main.temp);
-  //let humidityCity = data.main.humidity;
-  //let windCity = data.wind.speed;
-  //let emTempHumWind = emojiCity +temperatureCity +humidityCity +windCity;
-  
-  //return emTempHumWind;
   function showWeather(response) {
     document.querySelector("#mainCity").innerHTML = response.data.name;
     document.querySelector("#emojiCity").innerHTML =
@@ -51,6 +34,7 @@ function dayWeek(infoNowTime) {
       response.data.main.humidity + " %";
     document.querySelector("#windCity").innerHTML =
       Math.round(response.data.wind.speed) + " m/s";
+    document.querySelector("#emojiCity").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
   }
   
   function weatherCity(city) {
