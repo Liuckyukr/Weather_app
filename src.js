@@ -24,7 +24,38 @@ function dayWeek(infoNowTime) {
     let infoNowTime = new Date();
     dateElement.innerHTML = dayWeek(infoNowTime);
   
-
+    function displayForecast () {
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHTML = `<div class="row">`;
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+    days.forEach(function(day) {
+      forecastHTML = forecastHTML + `
+            <div class="col-3">
+              em
+            </div>
+            <div class="col-3">
+              <span>tmin</span>
+              <span>tmax</span>
+            </div>
+            <div class="col-3">
+              ${day}
+            </div>
+            <div class="col-3">
+              cloth
+            </div>
+      `;
+    });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  }
   
   function showWeather(response) {
     //document.querySelector("#dateCity").innerHTML = response.dayWeek(dayWeek);
