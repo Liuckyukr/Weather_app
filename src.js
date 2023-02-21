@@ -20,12 +20,14 @@ function dayWeek(infoNowTime) {
     let infoRealyDate = `${infoDay} ${infoHour}:${infoMinut}`;
     return infoRealyDate;
   }
-  let dateElement = document.querySelector("#dateCity");
-  let infoNowTime = new Date();
-  dateElement.innerHTML = dayWeek(infoNowTime);
+    let dateElement = document.querySelector("#dateCity");
+    let infoNowTime = new Date();
+    dateElement.innerHTML = dayWeek(infoNowTime);
+  
 
   
   function showWeather(response) {
+    //document.querySelector("#dateCity").innerHTML = response.dayWeek(dayWeek);
     document.querySelector("#mainCity").innerHTML = response.data.name;
     document.querySelector("#temperatureCity").innerHTML =
       Math.round(response.data.main.temp) + " °C";
@@ -34,6 +36,8 @@ function dayWeek(infoNowTime) {
     document.querySelector("#windCity").innerHTML =
       Math.round(response.data.wind.speed) + " m/s";
     document.querySelector("#emojiCity").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+   
+
   }
   
   function weatherCity(city) {
@@ -64,8 +68,13 @@ function dayWeek(infoNowTime) {
   let form = document.querySelector("#form");
   form.addEventListener("submit", userSubmit);
   
+
+  
   let currentLocationButton = document.querySelector("#currentData");
   currentLocationButton.addEventListener("click", currentLocation);
   
+
+  
+
   weatherCity("Kyiv");
   
