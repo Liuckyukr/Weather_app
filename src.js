@@ -8,48 +8,52 @@ function dayWeek(infoNowTime) {
       "Friday",
       "Saturday"
     ];
-    let infoDay = days[infoNowTime.getDay()];
-    let infoHour = infoNowTime.getHours();
-    let infoMinut = infoNowTime.getMinutes();
+    let date = new Date(infoNowTime);
+    let infoDay = days[date.getDay()];
+    let infoHour = date.getHours();
+    let infoMinut = date.getMinutes();
     if (infoMinut < 10) {
       infoMinut = "0" + infoMinut;
     }
     if (infoHour < 10) {
       infoHour = "0" + infoHour;
     }
-    let infoRealyDate = `${infoDay} ${infoHour}:${infoMinut}`;
-    return infoRealyDate;
+    return `${infoDay} ${infoHour}:${infoMinut}`;
   }
-    let dateElement = document.querySelector("#dateCity");
-    let infoNowTime = new Date();
-    dateElement.innerHTML = dayWeek(infoNowTime);
-  
-    function displayForecast () {
+   
+  function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ];
+    return days[day]
+  }
+
+  function displayForecast (response) {
+    let forecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = `<div class="row">`;
-    let days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ];
-    days.forEach(function(day) {
+    forecast.forEach(function(forecastDay) {
       forecastHTML = forecastHTML + `
             <div class="col-3">
-              em
+              <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="44"/>
             </div>
             <div class="col-3">
-              <span>tmin</span>
-              <span>tmax</span>
+              <span>${Math.round(forecastDay.temp.min)}°C</span> 
+              <span>${Math.round(forecastDay.temp.max)}°C</span>
             </div>
             <div class="col-3">
-              ${day}
+              <span>${formatDay(forecastDay.dt)}<span>
             </div>
             <div class="col-3">
-              cloth
+              <span>${Math.round(forecastDay.feels_like.day)}°C</span>
             </div>
       `;
     });
@@ -58,13 +62,13 @@ function dayWeek(infoNowTime) {
   }
   //add funct
   function getForecast(coordinates) {
-    let apiKey = "2ff29bed3181c3526c35cc5408037f85";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;  
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;  
     axios.get(apiUrl).then(displayForecast);
   }
   
   function showWeather(response) {
-    //document.querySelector("#dateCity").innerHTML = response.dayWeek(dayWeek);
+    document.querySelector("#dateCity").innerHTML = dayWeek(response.data.dt * 1000);
     document.querySelector("#mainCity").innerHTML = response.data.name;
     document.querySelector("#temperatureCity").innerHTML =
       Math.round(response.data.main.temp) + " °C";
@@ -104,13 +108,8 @@ function dayWeek(infoNowTime) {
   let form = document.querySelector("#form");
   form.addEventListener("submit", userSubmit);
   
-
-  
   let currentLocationButton = document.querySelector("#currentData");
   currentLocationButton.addEventListener("click", currentLocation);
-  
-
-  
 
   weatherCity("Kyiv");
   
