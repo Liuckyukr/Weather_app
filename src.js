@@ -56,6 +56,12 @@ function dayWeek(infoNowTime) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
   }
+  //add funct
+  function getForecast(coordinates) {
+    let apiKey = "2ff29bed3181c3526c35cc5408037f85";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;  
+    axios.get(apiUrl).then(displayForecast);
+  }
   
   function showWeather(response) {
     //document.querySelector("#dateCity").innerHTML = response.dayWeek(dayWeek);
@@ -66,9 +72,8 @@ function dayWeek(infoNowTime) {
       response.data.main.humidity + " %";
     document.querySelector("#windCity").innerHTML =
       Math.round(response.data.wind.speed) + " m/s";
-    document.querySelector("#emojiCity").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
-   
-
+    document.querySelector("#emojiCity").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    getForecast(response.data.coord);//add
   }
   
   function weatherCity(city) {
