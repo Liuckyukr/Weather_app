@@ -21,8 +21,11 @@
   <body>
     <video muted autoplay loop>
           <source src="art/London.mp4" type="video/mp4"/>
-      </video>
+    </video>
     <div class="conteiner">
+      <audio controls src="art/crystal rain.wav" autoplay loop>
+        <source src="art/crystal rain.wav" type="audio/wav">
+      </audio>
       <form id="form">
         <input
           type="Choose"
@@ -32,14 +35,12 @@
         />
         <input type="Submit" value="Submit" class="submit"/>
       </form>
-      
-
       <div class="infoCity">
         <div class="nameCity">
           <div class="city" id="mainCity">city</div>
         </div>
         <div id="dateCity">today</div>
-          <img src = "http://openweathermap.org/img/wn/01d@2x.png" id="emojiCity" width="86"/>
+          <img src = "http://openweathermap.org/img/wn/01d@2x.png" id="emojiCity" width="94"/>
           <div> Temperature: <span id="temperatureCity"></span></div>
           <div> Humidity: <span id="humidityCity"></span> </div>
           <div> Wind: <span id="windCity"></span></div>
