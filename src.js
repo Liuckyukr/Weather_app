@@ -1,4 +1,4 @@
-function dayWeek(infoNowTime) {
+function dayWeek(timestamp) {
     let days = [
       "Sunday",
       "Monday",
@@ -8,7 +8,7 @@ function dayWeek(infoNowTime) {
       "Friday",
       "Saturday"
     ];
-    let date = new Date(infoNowTime);
+    let date = new Date(timestamp);
     let infoDay = days[date.getDay()];
     let infoHour = date.getHours();
     let infoMinut = date.getMinutes();
@@ -60,7 +60,7 @@ function dayWeek(infoNowTime) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
   }
-  //add funct
+  
   function getForecast(coordinates) {
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;  
@@ -68,7 +68,7 @@ function dayWeek(infoNowTime) {
   }
   
   function showWeather(response) {
-    document.querySelector("#dateCity").innerHTML = dayWeek(response.data.dt * 1000);
+    document.querySelector("#dateCity").innerHTML = dayWeek(response.data.dt*1000);
     document.querySelector("#mainCity").innerHTML = response.data.name;
     document.querySelector("#temperatureCity").innerHTML =
       Math.round(response.data.main.temp) + " °C";
@@ -77,7 +77,8 @@ function dayWeek(infoNowTime) {
     document.querySelector("#windCity").innerHTML =
       Math.round(response.data.wind.speed) + " m/s";
     document.querySelector("#emojiCity").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    getForecast(response.data.coord);//add
+    document.querySelector("#descriptCity").innerHTML = response.data.weather[0].description;
+    getForecast(response.data.coord);
   }
   
   function weatherCity(city) {
