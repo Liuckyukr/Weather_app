@@ -25,6 +25,32 @@ body {
     opacity: 0.85;
   }
 
+.chooseCity {
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  border-radius: 8px;
+  border-color: aliceblue;
+  box-shadow: 1px 1px 1px rgb(201, 191, 191);
+  padding-left: 16px;
+  color:rgb(99, 92, 92);
+}
+
+.submit,
+.currentData { 
+  border-radius: 8px;
+  border-color: aliceblue;
+  width: 100px;
+  box-shadow: 1px 1px 1px rgb(201, 191, 191);
+  color:rgb(99, 92, 92);
+}
+
+.submit:hover,
+.currentData:hover {
+  background-color: rgba(253, 161, 149, 0.945);
+  box-shadow: rgba(253, 102, 82, 0.945);
+  border-color: rgba(253, 161, 149, 0.945);
+}
+
 .infoCity {
     margin-top: 5px;
     margin-bottom:  20px;
@@ -36,11 +62,6 @@ body {
   font-family: 'Noto Serif', serif;
   font-weight: bold;
   border-color: aliceblue;
-}
-
-.chooseCity {
-  font-family: 'Noto Serif', serif;
-  font-style: italic;
 }
 
 .currentData {
