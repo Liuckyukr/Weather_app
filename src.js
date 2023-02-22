@@ -46,14 +46,14 @@ function dayWeek(timestamp) {
               <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="44"/>
             </div>
             <div class="col-3">
-              <span>${Math.round(forecastDay.temp.min)}°C</span> 
+              <span class="tempMin">${Math.round(forecastDay.temp.min)}°C</span> 
               <span>${Math.round(forecastDay.temp.max)}°C</span>
             </div>
             <div class="col-3">
               <span>${formatDay(forecastDay.dt)}<span>
             </div>
             <div class="col-3">
-              <span>${Math.round(forecastDay.feels_like.day)}°C</span>
+              <span>Feels ${Math.round(forecastDay.feels_like.day)}°C</span>
             </div>
       `;
     });

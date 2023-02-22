@@ -19,6 +19,9 @@
     <title>Weather</title>
   </head>
   <body>
+    <video muted autoplay loop>
+          <source src="art/London.mp4" type="video/mp4"/>
+      </video>
     <div class="conteiner">
       <form id="form">
         <input
@@ -36,7 +39,7 @@
           <div class="city" id="mainCity">city</div>
         </div>
         <div id="dateCity">today</div>
-          <img src = "http://openweathermap.org/img/wn/01d@2x.png" id="emojiCity"/>
+          <img src = "http://openweathermap.org/img/wn/01d@2x.png" id="emojiCity" width="86"/>
           <div> Temperature: <span id="temperatureCity"></span></div>
           <div> Humidity: <span id="humidityCity"></span> </div>
           <div> Wind: <span id="windCity"></span></div>
@@ -45,17 +48,17 @@
       <div id="forecast">
         <div class="row">
           <div class="col-3">
-            <img src="" width=""/>
+            <img src="" class="icon" width=""/>
           </div>
           <div class="col-3">
-            <span></span> 
-            <span></span>
+            <span class="tempMin"></span> 
+            <span class="tempMax"></span>
           </div>
           <div class="col-3">
-            <span><span>
+            <span class="day"><span>
           </div>
           <div class="col-3">
-            <span></span>
+            <span class="feels"></span>
           </div>
         </div>
       </div>
@@ -64,7 +67,9 @@
         <a href="https://github.com/Liuckyukr/Weather_app" target="_blank">Open</a> by Matt Delac
       </div>
     </div>
-    
+    <div id="video-bg">
+      
+  </div>
     <script src="src.js"></script>
   </body>
 </html>

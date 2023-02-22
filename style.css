@@ -1,27 +1,41 @@
 body {
-    background-color: rgb(118, 134, 91);
+    
     font-family: 'Leckerli One', cursive;
-    color: rgb(78, 78, 78);
+    color: rgb(249, 248, 253);
   }
+
+  video {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    z-index: -100; 
+    opacity: 0.9;
+  }
+
 .conteiner {
     display: block;
     text-align: center;
-    font-size: 20px;
-    max-width: 600px;
+    font-size: 24px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 30px 60px;
-    background-color: rgb(199, 247, 206);
+    background-color: rgb(55, 141, 91);
+    opacity: 0.85;
   }
 
 .infoCity {
-    margin: 20px auto;
+    margin-top: 5px;
+    margin-bottom:  20px;
 }  
 
 .city {
-  font-size: 35px;
-  color: rgba(156, 66, 66, 0.945);
+  font-size: 44px;
+  color: rgba(253, 102, 82, 0.945);
   font-family: 'Noto Serif', serif;
   font-weight: bold;
+  border-color: aliceblue;
 }
 
 .chooseCity {
@@ -32,3 +46,12 @@ body {
 .currentData {
   margin: 25px auto;
 }
+
+.icon {
+  margin-top: -20px;
+}
+
+.tempMin {
+  color:rgb(54, 47, 47);
+}
+
